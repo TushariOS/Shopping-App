@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+extension UINavigationController {
+    func pushViewControllerWithFlipAnimation(viewController:UIViewController){
+        self.pushViewController(viewController
+            , animated: false)
+        if let transitionView = self.view{
+            UIView.transition(with:transitionView, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        }
+    }
+}

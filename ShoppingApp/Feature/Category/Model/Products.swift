@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+struct Products : Codable {
+    let sku : Int?
+    let name : String?
+    let cost : Int?
+
+    enum CodingKeys: String, CodingKey {
+        case sku = "sku"
+        case name = "name"
+        case cost = "cost"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        sku = try values.decodeIfPresent(Int.self, forKey: .sku)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        cost = try values.decodeIfPresent(Int.self, forKey: .cost)
+    }
+}

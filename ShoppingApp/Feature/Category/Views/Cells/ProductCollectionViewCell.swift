@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import SDWebImage
 
-class ProductCollectionViewCell: UICollectionViewCell {
+final class ProductCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }
